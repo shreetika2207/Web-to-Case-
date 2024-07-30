@@ -1,49 +1,105 @@
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <title>Web to Case Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
 
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <FORM> element to your page.             -->
-<!--  ----------------------------------------------------------------------  -->
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dd2000000VyxZ" method="POST">
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: calc(100% - 12px);
+            padding: 6px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-<input type=hidden name="orgid" value="00Dd2000000VyxZ">
-<input type=hidden name="retURL" value="https://creative-raccoon-o5ut4p-dev-ed.trailblaze.lightning.force.com/lightning/o/Case/list?filterName=__Recent">
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-<!--  these lines if you wish to test in debug mode.                          -->
-<!--  <input type="hidden" name="debug" value=1>                              -->
-<!--  <input type="hidden" name="debugEmail"                                  -->
-<!--  value="shree.kesarwani@gmail.com">                                      -->
-<!--  ----------------------------------------------------------------------  -->
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
 
-<label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dd2000000VyxZ" method="POST">
 
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+        <input type="hidden" name="orgid" value="00Dd2000000VyxZ">
+        <input type="hidden" name="retURL" value="https://creative-raccoon-o5ut4p-dev-ed.trailblaze.lightning.force.com/lightning/o/Case/list?filterName=__Recent">
 
-<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+        <!-- Debugging elements (uncomment if needed) -->
+        <!-- <input type="hidden" name="debug" value=1> -->
+        <!-- <input type="hidden" name="debugEmail" value="shree.kesarwani@gmail.com"> -->
 
-<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+        <label for="name">Contact Name</label>
+        <input id="name" maxlength="80" name="name" size="20" type="text" /><br>
 
-<label for="description">Description</label><textarea name="description"></textarea><br>
+        <label for="email">Email</label>
+        <input id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
-<label for="reason">Case Reason</label><select  id="reason" name="reason"><option value="">--None--</option><option value="Installation">Installation</option>
-<option value="Equipment Complexity">Equipment Complexity</option>
-<option value="Performance">Performance</option>
-<option value="Breakdown">Breakdown</option>
-<option value="Equipment Design">Equipment Design</option>
-<option value="Feedback">Feedback</option>
-<option value="Other">Other</option>
-</select><br>
+        <label for="phone">Phone</label>
+        <input id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
 
-<input type="hidden"  id="external" name="external" value="1" /><br>
+        <label for="subject">Subject</label>
+        <input id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
 
-<input type="submit" name="submit">
+        <label for="description">Description</label>
+        <textarea name="description"></textarea><br>
 
-</form>
+        <label for="reason">Case Reason</label>
+        <select id="reason" name="reason">
+            <option value="">--None--</option>
+            <option value="Installation">Installation</option>
+            <option value="Equipment Complexity">Equipment Complexity</option>
+            <option value="Performance">Performance</option>
+            <option value="Breakdown">Breakdown</option>
+            <option value="Equipment Design">Equipment Design</option>
+            <option value="Feedback">Feedback</option>
+            <option value="Other">Other</option>
+        </select><br>
+
+        <input type="hidden" id="external" name="external" value="1" /><br>
+
+        <input type="submit" name="submit" value="Submit">
+
+    </form>
+
+</body>
+</html>
